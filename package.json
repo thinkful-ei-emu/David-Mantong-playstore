@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "start":"node app.js"
   },
   "repository": {
     "type": "git",
@@ -18,8 +19,13 @@
   },
   "homepage": "https://github.com/thinkful-ei-emu/David-Mantong-playstore#readme",
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
+    "env": "0.0.2",
     "express": "^4.17.1",
-    "morgan": "^1.9.1"
+    "helmet": "^3.19.0",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.1"
   },
   "devDependencies": {
     "chai": "^4.2.0",

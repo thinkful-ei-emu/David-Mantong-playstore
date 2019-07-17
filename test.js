@@ -1,21 +1,19 @@
 const expect = require('chai').expect;
 const request= require('supertest');
 const app = require('./app.js');
-
-describe('GET /apps', ()=>{
+const moviedex = require('./movie.json');
+describe('GET /movie', (req)=>{
+  
   it ('should return a list of games', () =>{
+    let response = moviedex;
     return request(app)
-      .get('/apps')
+      .get('/movie')
       .expect(200)
       .expect('Content-Type', /json/)
       .expect(res => {
-        expect(res.body).to.be.an('array');
-        let i = 0, sorted = true;
-        while (sorted && i < res.body.length -1){
-          sorted = sorted && res.body[i].rating < res.body[i + 1].rating;
-          i++;
-        }
-        expect(sorted).to.be.true;
+        expect(res.body).to.be.include('genre');
+        expect(response = response.filter(movie =>
+          movie.genre.toLowerCase().includes(req.query.genre.toLowerCase())));
       });
   });
 });
