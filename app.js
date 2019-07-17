@@ -32,5 +32,6 @@ app.get('/apps', (req, res) => {
   
 });
 
-app.listen(8080, ()=>{console.log('Server started on PORT 8080');
-});
+// app.listen(8080, ()=>{console.log('Server started on PORT 8080');
+// });
+module.exports=app;
