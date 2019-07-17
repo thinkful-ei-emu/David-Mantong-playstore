@@ -17,7 +17,6 @@ app.get('/apps', (req, res) => {
   let results = playstore 
     .filter(game =>
       game
-        
         .Genres
         .toLowerCase()
         .includes(genres.toLowerCase()));

@@ -10,8 +10,13 @@ describe('GET /apps', ()=>{
       .expect('Content-Type', /json/)
       .expect(res => {
         expect(res.body).to.be.an('array');
+        let i = 0, sorted = true;
+        while (sorted && i < res.body.length -1){
+          sorted = sorted && res.body[i].rating < res.body[i + 1].rating;
+          i++;
+        }
+        expect(sorted).to.be.true;
       });
-
   });
-  it('Should return game by genres accending');
 });
+
